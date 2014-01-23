@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Smart i-matching</title>
+<link rel="stylesheet" type="text/css" href="css/cureJudget.css" />
+</head>
+
+
+<body>
+<form action="search.php" method="post" name="search" onlick="get_id">
+    <input type="text" name="user_id" value="请输入您的挂号单号"/>
+    <input type="submit"  value="查询挂号单"/>
+</form>
+<form action="matching.php" method="post" name="symp_get" onclick="get_office()">
+    <div id="Wrap">
+    	<div id="contain">
+         <div id="page">
+            <div class="choose">
+            	<p>Matching</p>
+				{foreach from=$symp_1st item=sym}
+                <div class="cure">
+                    	<input type="checkbox"  name="{$sym.symptom_id}" class="hiden">
+                	<p class="sure">{$sym.symptom_name}</p>
+                </div>
+				{/foreach}
+            </div>
+            <div class="choose">
+            	<p>Matching</p>
+                {foreach from=$symp_2nd item=sym}
+                <div class="Pagecure">
+                    	<input type="checkbox"  name="{$sym.symptom_id}" class="hidens">
+                	<p class="sure">{$sym.symptom_name}</p>
+                </div> 
+                {/foreach} 
+            </div>
+            <div class="choose">
+            	<p>Matching</p>
+                {foreach from=$symp_3rd item=sym}
+                <div class="Pagecure">
+                    	<input type="checkbox"  name="{$sym.symptom_id}" class="hidens">
+                	<p class="sure">{$sym.symptom_name}</p>
+                </div>
+                {/foreach}
+            </div>
+
+            <div class="choose">
+            	<p>Matching</p>
+                {foreach from=$symp_4th item=sym}
+                <div class="Pagecure">
+                    	<input type="checkbox"  name="{$sym.symptom_id}" class="hidens">
+                	<p class="sure">{$sym.symptom_name}</p>
+                </div>
+                {/foreach}
+            </div>
+		 </div>		
+                        <a href="#" id="nextpage"><img src="images/next.png" /></a>
+                        <a href="#" id="beforepage"><img src="images/before.png" /></a>
+        </div>
+    </div>
+            	<input type="submit" id="submit" value=" "/>
+</form>    
+    
+    
+<script type="text/javascript" language="javascript" src="javascript/demojs.js"></script>
+<script type="text/javascript" language="javascript" src="javascript/myQuery.js"></script>
+</body>
+</html>

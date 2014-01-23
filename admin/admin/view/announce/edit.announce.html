@@ -1,0 +1,90 @@
+{[include file="../public/head.html"]}
+      <div class="content-box-header">
+        <h3>公告管理</h3>
+        <ul class="content-box-tabs">
+          <li><a href="#tab1">公告管理</a></li>
+          <li><a href="#tab2" class="default-tab">公告修改</a></li>
+        </ul>
+        <div class="clear"></div>
+      </div>
+      <div class="content-box-content">
+        <div class="tab-content" id="tab1">
+{[include file="../public/message.html"]}
+          <table>
+            <thead>
+              <tr>
+                <th>公告ID</th>
+                <th>公告标题</th>
+                <th>部分内容</th>
+				<th>发布时间</th>
+				<th>发布人</th>
+				<th>状态</th>
+				<th></th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <td colspan="7">
+                  <div class="pagination">{[$page]}</div>
+                  <div class="clear"></div>
+                </td>
+              </tr>
+            </tfoot>
+            <tbody>
+			{[if isset($list)]}
+			{[foreach from=$list item=i]}
+            <tr>
+                <td>{[$i.id]}</td>
+                <td>{[$i.title]}</td>
+                <td>{[$i.message|html_decode|cut:20]}</td>
+                <td>{[$i.time|datetime]}</td>
+                <td>{[$i.user]}</td>
+				<td>{[if $i.lock==1]}隐藏{[else]}显示{[/if]}</td>
+                <td>
+				  <a href="{['lock'|Url]}&id={[$i.id]}" title="{[if $i.lock==1]}显示{[else]}隐藏{[/if]}"><img src="{[$ROOT]}static/images/icons/hammer_screwdriver.png" alt="{[if $i.lock==1]}显示{[else]}隐藏{[/if]}" /></a>
+                  <a href="{['edit'|Url]}&id={[$i.id]}" title="编辑"><img src="{[$ROOT]}static/images/icons/pencil.png" alt="编辑" /></a>
+				  <a href="javascript:cf('{['delete'|Url]}&id={[$i.id]}')" title="删除"><img src="{[$ROOT]}static/images/icons/cross.png" alt="删除" /></a>
+				</td>
+            </tr>
+			{[/foreach]}
+			{[/if]}
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-content default-tab" id="tab2">
+			<form action="{['edit'|Url]}" method="post" onsubmit="return check(this)">
+			<fieldset>
+			<input type="hidden" name="id" value="{[$result.id]}"/>
+            <p>
+              公告标题 <input class="text-input medium-input" type="text" id="small-input" name="title" value="{[$result.title]}"/>
+			</p>
+            <p>
+              公告内容 
+			  <textarea class="text-input textarea wysiwyg" id="textarea" name="message" cols="79" rows="15">{[$result.message]}</textarea>
+			</p>
+            <p>
+              <input class="button" type="submit" value="修 改" />
+            </p>
+            </fieldset>
+			</form>
+            <div class="clear"></div>
+        </div>
+      </div>
+{[include file="../public/foot.html"]}
+<script type="text/javascript">
+function check(thisform)
+{with(thisform){
+	if(title.value==''){
+		title.focus();
+		return false;
+	}
+	return true;
+}
+}
+
+function cf(url)
+{
+	if(!confirm('确定要删除该公告吗？')) return false;
+	location = url;
+}
+</script>

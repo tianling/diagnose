@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Smart i-matching</title>
+<link rel="stylesheet" type="text/css" href="css/cureJudget_m.css" />
+</head>
+
+<body>
+<form action="message.php" method="post" name="message" onsubmit="return check();">
+    <div id="Wrap">
+    	<div id="contain">
+            <div class="choose">
+            	<p>挂号单</p>
+                <div id="information">
+                	<p>姓名:</p><input type="text" class="styletext" name="name" />
+                    <p>年龄:</p><input type="text" class="styletext" name="age"/>
+                    <p>性别:</p>
+                    <select name="sex">
+                    	<option value="M">男</option>
+                        <option value="WM">女</option>
+                    </select>
+                    <p>医生选择:</p>                 
+                    <select name="doctor">
+                        {foreach from=$doctors item=doc}
+                    	<option value="{$doc.doctor_id}">{$doc.doctor_name}({$doc.doctor_job})</option>
+                        {/foreach}
+                    </select>
+                    <br />
+                    <p>地址:</p><input type="text" class="styletextS" name="address" />
+                    <br/>
+                    <p>电话:</p><input type="text" class="styletextS"  name="telephone"/>
+                    <br/>
+                    <p>过往病史:</p><input type="text" class="styletextS" name="history" />
+                </div>
+            </div>	
+    </div>
+            	<input type="submit" id="submit" value=" "/>
+</form>    
+    
+    
+<script type="text/javascript" language="javascript" src="javascript/demojs_m.js"></script>
+<script type="text/javascript" language="javascript" src="javascript/myQuery_m.js"></script>
+</body>
+</html>

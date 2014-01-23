@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Smart i-matching</title>
+<link rel="stylesheet" type="text/css" href="css/cureJudget_m.css" />
+</head>
+
+<body>
+
+    <div id="Wrap">
+    	<div id="contain">
+            <div class="choose">
+            	<p>挂号单</p>
+                    <table border='1'  width='472' hight='356' >
+                        <tr>
+                            <td>姓名：{$name}</td>
+                            <td>年龄：{$age}</td>
+                        </tr>
+                        <tr>
+                            <td>性别: {$sex}</td>
+                            <td>主治医生: {$doctor}</td>
+                        </tr>
+                        <tr>
+                            <td>家庭地址: {$address}</td>
+                        </tr>
+                        <tr>
+                            <td>联系电话: {$tel}</td>
+                            <td>挂号时间: {$time}</td>
+                        </tr>
+                        <tr>
+                            <td>病史： {$message}</td>
+                        </tr>
+                        <tr>
+                            <td>状态： <b>{$state}<b></td>
+                        </tr>
+                        <tr>
+                            <td>单号:<b>{$id}</b>(请记牢，过后凭此号查看挂号信息)</td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <br/>
+                    {if $state_id eq 1}
+                    <p align="center" >您前面有: <b>{$num}</b> 位病人</p>
+                    {/if}
+                </div>
+            </div>	
+    </div>
+            	
+   
+    
+    
+<script type="text/javascript" language="javascript" src="javascript/demojs_m.js"></script>
+<script type="text/javascript" language="javascript" src="javascript/myQuery_m.js"></script>
+</body>
+</html>

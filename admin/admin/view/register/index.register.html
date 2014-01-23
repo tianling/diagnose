@@ -1,0 +1,64 @@
+{[include file="../public/head.html"]}
+      <div class="content-box-header">
+        <h3>挂号信息</h3>
+        <ul class="content-box-tabs">
+          <li><a href="#tab1" class="default-tab">挂号信息</a></li>
+        </ul>
+        <div class="clear"></div>
+      </div>
+      <div class="content-box-content">
+        <div class="tab-content default-tab" id="tab1">
+{[include file="../public/message.html"]}
+          <table>
+            <thead>
+              <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>电话</th>
+				<th>地址</th>
+				<th>主治医生</th>
+				<th>科室</th>
+                <th>病史</th>
+				<th>状态</th>
+				<th></th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <td colspan="8">
+                  <div class="pagination">{[$page]}</div>
+                  <div class="clear"></div>
+                </td>
+              </tr>
+            </tfoot>
+            <tbody>
+			{[if isset($list)]}
+			{[foreach from=$list item=i]}
+            <tr>
+                <td>{[$i.user_name]}</td>
+                <td>{[if $i.user_sex==1]}男{[else]}女{[/if]}</td>
+                <td>{[$i.user_tel]}</td>
+				<td>{[$i.user_adress]}</td>
+				<td>{[$i.doctor_name]}</td>
+				<td>{[$i.office_name]}</td>
+                <td>{[$i.user_message]}</td>
+				<td>{[if $i.user_lock==1]}通过{[else]}待审核{[/if]}</td>
+                <td>
+				   <a href="{['lock'|Url]}&id={[$i.user_id]}" title="审核"><img src="{[$ROOT]}static/images/icons/hammer_screwdriver.png"/></a>
+				  <a href="javascript:cf('{['delete'|Url]}&id={[$i.user_id]}')" title="删除"><img src="{[$ROOT]}static/images/icons/cross.png" alt="删除" /></a>
+				</td>
+            </tr>
+			{[/foreach]}
+			{[/if]}
+            </tbody>
+          </table>
+        </div>
+      </div>
+{[include file="../public/foot.html"]}
+<script type="text/javascript">
+function cf(url)
+{
+	if(!confirm('确定要删除该信息吗？')) return false;
+	location = url;
+}
+</script>

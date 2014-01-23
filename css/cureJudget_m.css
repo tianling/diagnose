@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0;
+	padding:0;	
+}
+body{
+	background:#E6DAB4;	
+}
+#Wrap{
+	width:800px;
+	height:600px;
+	background:url(../images/background.gif) no-repeat;
+	margin:0 auto;
+	position:relative;	
+}
+#contain{
+	width:0px;
+	height:388px;
+	position:relative;
+	top:22%;
+	left:21%;
+	overflow:hidden;
+	opacity:0.8;
+	z-index:3;
+	background:url(../images/contain.jpg);
+	-webkit-border-radius:5px;
+	-webkit-box-shadow:1px 1px 5px 2px #151513;
+	-webkit-transition:all 1s linear 0.2s;
+}
+.choose{
+	width:472px;
+	height:356px;
+	background:url(../images/choosebackground.png) no-repeat;
+	position:relative;
+	float:left;
+	top:1%;
+	margin-left:7px;
+	margin-right:9px;
+	z-index:5;
+	-webkit-transition:all 1s ease 0.3s;
+}
+.choose>P{
+	font-family:"隶书";
+	font-size:36px;
+	color:#D795A7;
+	padding-top:15px;
+	margin-left:30px;
+	text-align:center;
+}
+#information{
+	width:403px;
+	height:253px;
+	margin:0 auto;
+	border:6px solid #C6AE7E;
+}
+#information p{
+	font-family:"隶书";
+	font-size:24px;
+	color:#CBB181;
+	display:inline-block;
+	margin-left:15px;
+	margin-top:15px;
+}
+#submit{
+	width:107px;
+	height:35px;
+	background:url(../images/sumbitbackground.jpg) no-repeat;
+	border:0;
+	position:absolute;
+	left:700px;
+	top:600px;
+}
+.styletext{
+	border:none;
+	background:#E5E0D9;
+	opacity:1;
+	border-bottom:3px solid #CDB588;
+	width:100px;
+	display:inline-block;
+}
+.styletextS{
+	border:none;
+	background:#E5E0D9;
+	border-bottom:3px solid #CDB588;
+	width:250px;
+	display:inline-block;	
+}
+
+
